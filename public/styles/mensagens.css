@@ -1,0 +1,26 @@
+@keyframes ocultarMensagem {
+  to {
+    top: -50px;
+    opacity: 0;
+  }
+}
+
+.mensagens {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  position: absolute;
+  width: 100%;
+  color: white;
+  top: 0;
+  opacity: 1;
+  animation: ocultarMensagem 400ms 5s ease-out forwards;
+}
+
+.mensagens.erro {
+  background: #e74c3c;
+}
+
+.mensagens.success {
+  background: #39b614;
+}

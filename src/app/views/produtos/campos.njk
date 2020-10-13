@@ -1,0 +1,108 @@
+
+<div class="item">
+  <div>Categoria</div>
+    <div>
+      <select name="categoria_id">
+        {% for categoria in categorias %}
+        <option value="{{ categoria.id }}" {% if produto.categoria_id == categoria.id %}selected{%endif%}>{{ categoria.nome }}</option>
+        {% endfor %}
+      </select>
+      </div>
+    </div>
+
+<!--CAMPOS DO INSTRUTOR-->
+
+<div class="item">
+  <div>Titulo</div>
+  <div>
+    <!--Neste INPUT se espera algo do tipo: https://-->
+    <!--Os "names" que eu to colocando eu vou receber lá no BACK-END, lá no ROUTES -->
+    <!--Para deixarmos o VALOR dentro do INPUT usamos o value=""-->
+    <input type="text" name="nome" placeholder="Digite o Titulo do Anúncio" value="{{ produto.nome }}">
+  </div>
+</div>
+
+<div class="item">
+  <div>Descrição</div>
+  <div>
+    <textarea name="descricao">{{ produto.descricao }}</textarea>
+  </div>
+</div>
+
+
+{# Campo de Foto #}
+
+<div class="item">
+  <div>Fotos</div>
+  <div>
+    <div id="fotos-upload">
+      <input 
+    id="fotos-input"
+    type="file" 
+    name="fotos" 
+    multiple
+    accept="image/*"
+    onchange="Fotos.UploadFotos(event)"
+    > <!-- Multiple = aceita vários arquivos 
+           accept="image/*" <- Aqui está aceitando todo tipo de ARQUIVO que seja IMAGEM
+    -->
+    <p>Selecione até 6 fotos</p>
+    </div>
+
+    <div id="fotos-preview">
+      {% if produto.arquivos %}
+        {% for imagem in produto.arquivos %}
+          <div class="foto" id="{{imagem.id}}">
+            <img src="{{imagem.src}}" alt="{{imagem.nome}}">
+            <i class="material-icons"
+              onclick="Fotos.removerAntigaFoto(event)"
+            >close</i>
+          </div>
+        {% endfor %}
+        <input type="hidden" name="remover_arquivos">
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="item">
+  <div>Valor</div>
+  <div>
+        <input type="text" 
+        name="preco" 
+        placeholder="Preço do produto" 
+        value="{{ produto.formatarPreco }}"
+        onkeydown = "Mascara.aplicar(this, 'formatarBRL')"
+        >
+        
+  </div>
+  {% if produto.antigo_preco %}
+    <input type="hidden" name="antigo_preco" value={{produto.formatarAntigoPreco}}>
+  {% endif %}
+</div>
+
+<div class="item">
+  <div>Quantidade</div>
+  <div>
+    <!--Neste INPUT se espera algo do tipo: https://-->
+    <!--Os "names" que eu to colocando eu vou receber lá no BACK-END, lá no ROUTES -->
+    <!--Para deixarmos o VALOR dentro do INPUT usamos o value=""-->
+    <input type="number" name="quantidade" placeholder="Estoque Disponivel" value="{{ produto.quantidade }}">
+  </div>
+</div>
+
+
+{% if (produto.status == '1') or (produto.status == '0') %}
+<div class="item">
+  <div>Disponivel ?</div>
+  <div>
+    <span>
+      <!--Checked obrigando ao usuário que selecione o "sexo"-->
+      <input type="radio" name="status" value="1" {% if produto.status == '1' %} checked="checked" {% endif %}>
+      Sim
+      <!--Quando eu selecionar este irá enviar para mim o valor F-->
+      <input type="radio" name="status" value="0" {% if produto.status == '0' %} checked="checked" {% endif %}>
+      Não
+    </span>
+  </div>
+  {% endif %}

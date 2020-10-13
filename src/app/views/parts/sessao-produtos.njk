@@ -1,0 +1,43 @@
+{% macro produtos(nome, classes, produtos) %}
+
+  <section class="shop {{classes}}">
+    <!-- Aki deve ser o card -->
+
+    {% if nome %}
+      <h2>{{nome}}</h2>
+    {% endif %}
+
+    <div class="card">
+      <!-- Começa dos ITENS -->
+
+      {% for produto in produtos %}
+        <!-- card -->
+        <div class="produto">
+          <div class="imgBx">
+            <!-- aki era "imagem" -->
+            <!-- imgBx -->
+            {% if produto.img %}
+              <img src="{{produto.img}}" alt="">
+            {% else %}
+              <!-- IMAGEM -->
+              <img src="http://placehold.it/500x500?text=Produto sem foto" alt="">
+            {% endif %}
+          </div>
+          <div class="contentBx">
+            <!-- Não havia está linha -->
+            {% if produto.formatarAntigoPreco != produto.formatarPreco %}
+              <div class="antigo-preco">{{produto.formatarAntigoPreco}}</div>
+            {% endif %}
+            <h2 class="price">{{produto.formatarPreco}}</h2>
+            <h3>{{produto.nome}}</h3>
+
+            <a href="/produtos/{{produto.id}}" class="buy">Ver Produto</a>
+
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endmacro %}

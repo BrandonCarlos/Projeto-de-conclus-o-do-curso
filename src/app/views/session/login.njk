@@ -1,0 +1,33 @@
+{% extends "layout.njk" %}
+
+{% import "parts/card.njk" as card %}
+
+{% block content %}
+
+{% call card.render('Entrar', 'login container')%}
+
+    <!--action="" é para onde ele vai enviar-->
+    <form method="POST" action="/usuarios/login">
+
+      <div class="campos">
+        {% include 'session/campos.njk' %}
+      </div>
+
+      <button class="button" type="submit">Entrar</button>
+
+      <div class="footer">
+        <ul>
+          <li>
+            <a href="/usuarios/registrar">Registre-se</a>
+          </li>
+          <li>
+            <a href="/usuarios/forgot-password">Esqueci a senha</a>
+          </li>
+        </ul>
+      </div>
+
+    </form>
+
+{%endcall%}
+
+{% endblock content %}

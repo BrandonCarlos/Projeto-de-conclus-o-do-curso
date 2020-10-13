@@ -1,0 +1,28 @@
+{% extends "layout.njk" %}
+{% import "parts/card.njk" as cards %}
+
+{% block content %}
+
+  {%call cards.render('', 'pedido-sucesso container')%}
+  <div class="sucesso-lottie"></div>
+  <h2>Pedido Realizado com Sucesso</h2>
+  <p>
+    Aguarde a resposta do vendedor no seu email cadastrado.
+  </p>
+  <a href="/produtos/buscar">Comprar mais</a>
+
+  {%endcall%}
+
+  <script src="/lottie.min.js"></script>
+  <script>
+    const element = document.querySelector('.sucesso-lottie')
+    lottie.loadAnimation({
+      container: element, // the dom element that will contain the animation
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: '/4467-success.json' // the path to the animation json
+    });
+  </script>
+
+{% endblock content %}

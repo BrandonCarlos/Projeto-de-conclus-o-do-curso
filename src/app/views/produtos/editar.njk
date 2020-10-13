@@ -1,0 +1,37 @@
+{% extends "layout.njk" %}
+
+{% import "parts/card.njk" as card %}
+
+{% block content %}
+
+  {% call card.render('Editar Produto', 'produto-criar container')%}
+  <!--action="" é para onde ele vai enviar-->
+  <form method="POST" action="/produtos?_method=PUT" enctype="multipart/form-data">
+
+    <div class="campos">
+      {% include 'produtos/campos.njk' %}
+      <input type="hidden" name="id" value={{produto.id}}>
+    </div>
+
+    <button class="button editar" type="submit">Atualizar</button>
+
+  </form>
+
+  <form id="form-delete" action="/produtos?_method=DELETE" method="post">
+    <input type="hidden" name="id" value={{produto.id}}>
+    <button class="button delete" type="submit">Deletar</button>
+  </form>
+  {%endcall%}
+
+  <script>
+    const formDelete = document.querySelector('#form-delete')
+    formDelete.addEventListener("submit", function (event) {
+      const confirmation = confirm("Deseja Deletar?")
+      if (!confirmation) {
+        event.preventDefault() 
+      }
+
+    })
+  </script>
+
+{% endblock content %}

@@ -1,0 +1,581 @@
+
+:root {
+  --primary-color: #dd1919;
+  --secondary-color: rgb(9, 165, 238);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  text-decoration: none;
+
+  list-style-type: none;
+  border: none;
+}
+
+html, body {
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 90%;
+  max-width: 940px;
+  margin: 0 auto;
+
+}
+
+footer {
+  margin-top: auto;
+}
+
+.button {
+  background: var(--primary-color);
+  color: white;
+
+  display: block;
+  margin: 16px 0;
+  padding: 12px 16px;
+
+  width: 100%;
+  border-radius: 4px;
+
+  /* Para colocar o botão para baixo */
+  align-self: end;
+
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 16px;
+  text-align: center;
+
+  cursor: pointer;
+
+  transition: all 0.2s;
+}
+
+.button:hover {
+  background: var(--secondary-color);
+}
+
+.button.editar{
+  background: var(--secondary-color);
+}
+.button.delete {
+  background: lightgray;
+}
+
+.button.editar:hover {
+  background: rgb(7, 133, 190);
+}
+.button.delete:hover {
+  background: rgb(170, 2, 2);
+}
+
+/* HEADER */
+
+header {
+  background: linear-gradient(to bottom, #000000 30%, #05359c 100%);
+  color: white;
+  width: 100%;
+  padding: 32px 0;
+
+  text-align: center;
+}
+
+footer {
+  background: black;
+  color: white;
+  width: 100%;
+  padding: 32px 0;
+
+  text-align: center;
+}
+
+header div.container {
+  display: grid;
+  grid-template-columns: 220px auto 280px;
+  align-items: center;
+  grid-gap: 24px;
+}
+
+header div.container a {
+  justify-self: start;
+}
+
+/* Logo */
+.logo h1 {
+  color: white;
+  font-size: 36px;
+  line-height: 46px;
+
+}
+
+.logo h2 {
+  color: var(--secondary-color);
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 2px;
+}
+
+/* HEADER SEARCH */
+
+.search input {
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 2px;
+  font-size: 16px;
+}
+
+/* PRIMARY MENU */
+nav.primary > ul {
+  display: flex;/* Display flex ALINHA OS LINKS UM ATRÁS DO OUTRO */
+  justify-content: space-between; /* Espaço entre os LINKS */
+
+}
+
+nav.primary > ul > li > a {
+  display: flex;
+  align-items: center;
+
+  height: 48px;
+  color: white;
+  transition: 200ms;
+
+}
+
+nav.primary > ul > li > a:hover {
+  color: var(--primary-color);
+}
+
+nav.primary > ul > li > a > i {
+  margin-right: 8px;
+}
+
+/* FORMULÁRIO DO PRODUTO */
+section.form {
+  background: white;
+  padding: 32px 24px;
+  margin: 32px auto;
+
+  box-shadow: 2px 2px 2px -4px rgba(60, 60, 60, .9);
+  border: 1px solid #efefef;
+  border-radius: 4px;
+
+  max-width: 700px;
+  width: 90%;
+}
+
+section.form .header h3 {
+  font-size: 24px;
+  text-align: center;
+  line-height: 24px;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 16px;
+
+}
+
+form .fields {
+  margin-bottom: 64px;
+}
+
+form .item {
+  margin-bottom: 16px;
+
+}
+
+/*1° DIV é o da CATEGORIA*/
+form .item > div:nth-child(1) {
+  color: #777;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+
+}
+
+form .item .input input,
+form .item input[type="text"],
+form .item input[type="number"],
+form .item textarea,
+form .item select {
+  width: 100%;
+  padding: 8px 16px;
+  box-shadow: 2px 2px 2px -4px rgba(63,63,63, .9);
+  border: 1px solid #efefef;
+  border-radius: 4px;
+  font-size: 16px;
+
+}
+
+form .item select {
+  /*Permitir estilização no SELECT*/
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+
+  /*Trazer de volta o ICONE LATERAL DE EXIBIR CATEGORIAS*/
+  background: #fff;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+  linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  background-repeat: no-repeat;
+  background-position: right .7em top 50%, 0 0;
+  background-size: .65em auto, 100%;
+
+}
+
+form .item textarea {
+  min-height: 150px;
+
+}
+
+form .item span {
+  padding: 8px 16px;
+  background: var(--primary-color);
+  border-radius: 16px;
+  color: white;
+  margin-right: 4px;
+  /*Para aceitar esse margin-top que eu coloquei, eu preciso colocar um 
+  "display:inline-block" que dai ele vai aceitar o meu "margin-top"*/
+  margin-top: 8px;
+  /*Graças a linha de baixo a linha de cima funciona*/
+  display: inline-block;
+  font-weight: bold;
+  /*A linha abaixo faz com que o texto fique com LETRAS MAIUSCULAS*/
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+/* Fotos UPLOAD */
+form .item #fotos-upload {
+  position: relative;
+
+  display: block;
+  overflow: hidden; /* Aqui é para que não haja rolagem */
+  width: 200px;
+
+}
+
+form .item #fotos-upload p {
+  padding: 8px 16px;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px -6px #333;
+  background: var(--secondary-color);
+  color: white;
+
+  width: 100%;
+  text-align: center;
+
+  text-transform: uppercase;
+  font-size: 14px;
+  
+}
+
+form .item #fotos-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+form .item #fotos-preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 8px;
+  width: 100%;
+  margin: 8px 0;
+
+}
+
+form .item #fotos-preview img {
+  width: 100%;
+  height: 150px;
+
+  object-fit: cover;
+}
+
+#fotos-preview .foto {
+  position: relative;
+
+}
+
+#fotos-preview .foto i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.8);
+  color: red;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 500%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+#fotos-preview .foto:hover i {
+  opacity: 1;
+}
+
+
+.produto-unico .preco-comprar .comprar button:hover {
+  background: rgb(10, 83, 219);
+}
+
+/* SHOP */
+/*.shop h2 {
+  margin: 48px 0;
+}
+
+.shop .itens {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 32px;
+}
+
+.shop .produto {
+  display: grid;
+ 
+}
+
+.shop .produto .imagem {
+  background-image: url("imagens/");
+  padding-top: 56.25%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.shop .itens h4 {
+  margin: 8px 0;
+  font-weight: 300;
+  color: #999;
+
+}
+
+.shop .itens p {
+  color: #101010;
+  font-weight: 300;
+  font-size: 24px;
+  margin-top: 8px;
+}
+
+.shop .produto .antigo-preco {
+  padding: 0;
+  margin: 4px 0;
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+
+}*/
+
+.shop h2 {
+  margin: 48px 0;
+
+}
+
+.shop h2.price {
+  margin: 18px 0;
+}
+
+.shop .card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 32px;
+}
+
+.shop .card {
+  display: grid;
+  margin: 0 0 30px 0;
+}
+
+.produto {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  background: #7a297a;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.produto::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  width: 100%;
+  height: 100%;
+  background: #5858FA;
+  transform: skewY(345deg);
+  transition: 0.5s;
+}
+
+.produto:hover::before {
+  top: -70%;
+  transform: skewY(390deg);
+}
+
+.produto::after {
+  content: 'Hawkshop';
+  position: absolute;
+  bottom: 10px;
+  left: -10px;
+  font-weight: 600;
+  font-size: 8em;
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.produto .imgBx {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  z-index: 1;
+}
+
+.produto .imgBx img {
+  max-width: 100%;
+  transition: 0.5s;
+}
+
+.produto:hover .imgBx img {
+  max-width: 50%;
+}
+
+.produto .contentBx {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.produto .contentBx h3 {
+  font-size: 18px;
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.produto .contentBx .antigo-preco {
+  text-decoration: line-through;
+  color: white;
+}
+
+.produto .contentBx .price {
+  font-size: 24px;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.produto .contentBx .buy {
+  position: relative;
+  top: 200px;
+  opacity: 0;
+  padding: 10px 30px;
+  margin-top: 40px;
+  color: #fff;
+  text-decoration: none;
+  background: var(--secondary-color);
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+.produto:hover .contentBx .buy {
+  top: 0;
+  opacity: 1;
+}
+
+
+
+
+
+
+/* BUSCAR PÁGINA */
+
+.buscar-produtos {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  margin-top: 48px;
+}
+
+.buscar-produtos .header {
+  margin-bottom: 48px;
+  font-size: 14px;
+  color: rgb(35, 76, 209);
+}
+
+.buscar-produtos .header h2 {
+  font-size: 26px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.buscar-produtos nav h4 {
+  margin-bottom: 16px;
+  color: #7a297a;
+  font-size: 14px;
+  text-transform: uppercase;
+
+}
+
+.buscar-produtos nav ul li {
+  margin: 4px 0;
+
+}
+
+.buscar-produtos nav ul li a {
+  color: #777;
+}
+
+.buscar-produtos nav ul li a:hover {
+  color: black;
+  font-weight: bold;
+}
+
+/*VALIDAR ERROS*/
+.input .erro {
+  background: #e74c3c;
+  padding: 4px;
+  border-radius: 4px;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+

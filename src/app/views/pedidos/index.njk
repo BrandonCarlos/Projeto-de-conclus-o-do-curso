@@ -1,0 +1,63 @@
+{% extends "layout.njk" %}
+
+{% import "parts/card.njk" as card %}
+
+{% block content %}
+
+  {% if (pedidos.length < 1)%}
+    {% call card.render('', 'carrinho-vazio container')%}
+    <p>Nenhum Pedido</p>
+    <a href="/produtos/buscar" class="button">Compre agora</a>
+    {%endcall%}
+    {%else%}
+
+    {% call card.render('Meus Pedidos', 'pedidos container')%}
+
+    <div class="itens">
+
+      {% for pedido in pedidos %}
+        <div class="item-container">
+          <div class="item">
+            <img src="{{pedido.produto.img}}" alt="Imagem do produto {{pedido.produto.nome}}">
+            <div>
+              <div class="titulo">{{pedido.produto.nome}}</div>
+              <div class="preco">{{pedido.precoFormatado}}</div>
+              <div class="atualizado-em">{{pedido.atualizadoEmFormatado}}</div>
+
+            </div>
+
+          </div>
+
+          <div class="quantidade">
+            Qtd.
+            {{pedido.quantidade}}
+          </div>
+
+          <div class="total">
+            {{pedido.totalFormatado}}
+          </div>
+
+          <div class="status {{pedido.status}}">
+            {{pedido.statusFormatado}}
+          </div>
+
+          <div class="actions dropdown-container">
+            Açôes
+            <i class="material-icons">arrow_drop_down</i>
+            <ul class="dropdown">
+              <li>
+                <a href="/pedidos/{{pedido.id}}">Ver Pedido</a>
+              </li>
+                
+              </ul>
+            </div>
+
+          </div>
+
+        {% endfor %}
+      </div>
+
+      {%endcall%}
+      {%endif%}
+
+    {% endblock content %}

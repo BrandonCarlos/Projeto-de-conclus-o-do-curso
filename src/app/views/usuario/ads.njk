@@ -1,0 +1,30 @@
+{% extends "layout.njk" %}
+{% import "parts/card.njk" as cards %}
+
+{% block content %}
+
+  {%call cards.render('Meus Anúncios', 'usuarios-ads container')%}
+  <div class="itens">
+    {% for produto in produtos %}
+      <div class="item">
+        <img class="imagem" src="{{produto.img}}">
+
+        <div class="info">
+          <div class="titulo">{{produto.nome}}</div>
+          <div class="preco">{{produto.formatarPreco}}</div>
+          <div class="publicar">Publicado em
+            {{produto.publicar.day}} às {{produto.publicar.hour}}</div>
+
+          <div class="actions">
+            <a href="/produtos/{{produto.id}}/editar">Editar</a>
+            <a href="/produtos/{{produto.id}}">Ver</a>
+          </div>
+        </div>
+
+      </div>
+    {% endfor %}
+  </div>
+
+  {%endcall%}
+
+{% endblock content %}

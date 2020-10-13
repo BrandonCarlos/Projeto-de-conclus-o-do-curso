@@ -1,0 +1,76 @@
+/* registro do usuario */
+.usuarios-registrar,
+.usuarios-dashboard {
+  max-width: 500px;  
+}
+
+.usuarios-ads {
+  max-width: 700px;
+}
+
+.usuarios-ads .itens {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 32px;
+  padding: 16px 0;
+}
+
+.usuarios-ads .item {
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  align-items: start;
+  color: #444;
+}
+
+.usuarios-ads .item .imagem {
+  width: 100px;
+  height: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  border-radius: 8px;
+  border: 1px solid #eee;
+  box-shadow: 2px 2px 4px -4px black;
+}
+
+.usuarios-ads .info {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+}
+
+.usuarios-ads .info .titulo {
+  font-size: 18px;
+  font-weight: normal;
+  color: rgb(74, 74, 74);
+  margin-bottom: 4px;
+}
+
+.usuarios-ads .info .preco {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(74, 74, 74);
+  margin-bottom: 4px;
+}
+
+.usuarios-ads .info .publicar {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgb(74, 74, 74);
+}
+
+.usuarios-ads .info .actions {
+  display: flex;
+  margin-top: auto;
+}
+
+.usuarios-ads .info .actions a {
+  margin-right: 16px;
+  color: var(--primary-color);
+}
+
+.usuarios-ads .info .actions a:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}

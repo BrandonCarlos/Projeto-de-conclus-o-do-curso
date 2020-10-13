@@ -1,0 +1,78 @@
+{% extends "layout.njk" %}
+
+{% import "parts/card.njk" as card %}
+
+{% block content %}
+
+  {% if (vendas.length < 1)%}
+    {% call card.render('', 'carrinho-vazio container')%}
+    <p>Nenhuma Venda</p>
+    <a href="/ads/criar" class="button">Comece a Vender</a>
+    {%endcall%}
+    {%else%}
+
+    {% call card.render('Minhas vendas', 'vendas pedidos container')%}
+
+    <div class="itens">
+
+      {% for venda in vendas %}
+        <div class="item-container">
+          <div class="item">
+            <img src="{{venda.produto.img}}" alt="Imagem do produto {{venda.produto.nome}}">
+            <div>
+              <div class="titulo">{{venda.produto.nome}}</div>
+              <div class="preco">{{venda.precoFormatado}}</div>
+              <div class="atualizado-em">{{venda.atualizadoEmFormatado}}</div>
+
+            </div>
+
+          </div>
+
+          <div class="quantidade">
+            Qtd.
+            {{venda.quantidade}}
+          </div>
+
+          <div class="total">
+            {{venda.totalFormatado}}
+          </div>
+
+          <div class="status {{venda.status}}">
+            {{venda.statusFormatado}}
+          </div>
+
+          <div class="action dropdown-container">
+            Açôes
+            <i class="material-icons">arrow_drop_down</i>
+            <ul class="dropdown">
+              <li>
+                <a href="/pedidos/{{venda.id}}">Ver Pedido</a>
+              </li>
+              <li>
+                <a href="/produtos/{{venda.produto.id}}/editar">Ver Pedido</a>
+              </li>
+              {%if venda.status == 'open' %}
+                <li>
+                  <form action="/pedidos/{{venda.id}}/close" method="POST">
+                    <button>Marcar vendido</button>
+                  </form>
+                </li>
+                <li>
+                  <form action="/pedidos/{{venda.id}}/cancel" method="POST">
+                    <button>Marcar cancelado</button>
+                  </form>
+                </li>
+              {% endif %}
+
+            </ul>
+          </div>
+
+        </div>
+
+      {% endfor %}
+    </div>
+
+    {%endcall%}
+    {%endif%}
+
+  {% endblock content %}

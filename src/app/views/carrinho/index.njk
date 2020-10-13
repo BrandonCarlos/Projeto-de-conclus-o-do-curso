@@ -1,0 +1,76 @@
+{% extends "layout.njk" %}
+
+{% import "parts/card.njk" as card %}
+
+{% block content %}
+
+  {% if (carrinho.itens) and (carrinho.itens.length < 1)%}
+    {% call card.render('', 'carrinho-vazio container')%}
+      <p>Seu carrinho está vazio</p>
+      <a href="/produtos/buscar" class="button">Compre agora</a>
+    {%endcall%}
+  {%else%}
+
+    {% call card.render('Carrinho', 'carrinho container')%}
+      <div class="header">
+        <p>Produto</p>
+        <p>Preço</p>
+        <p>Qtd.</p>
+      </div>
+
+      <div class="itens">
+        {% for item in carrinho.itens %}
+
+          <div class="item">
+            <a href="/produtos/{{item.produto.id}}">
+              <img src="{{item.produto.img}}" alt="Imagem do produto {{item.produto.nome}}">
+              <span class="titulo">{{item.produto.nome}}</span>
+            </a>
+
+            <span class="preco">{{item.precoFormatado}}</span>
+
+            <div class="quantidade-control">
+              <form action="/carrinho/{{item.produto.id}}/remover-um" method="POST">
+                <button class="remover">
+                  <i class="material-icons">remove_circle_outline</i>
+                </button>
+              </form>
+
+              <span class="quantidade">{{item.quantidade}}</span>
+
+              <form action="/carrinho/{{item.produto.id}}/adicionar-um" method="POST">
+                <button class="adicionar">
+                  <i class="material-icons">add_circle_outline</i>
+                </button>
+              </form>
+            </div>
+
+            <form class="trash" action="/carrinho/{{item.produto.id}}/deletar" method="POST">
+              <button class="deletar">
+                <i class="material-icons">delete</i>
+              </button>
+            </form>
+          </div>
+
+        {% endfor %}
+      </div>
+
+      <div class="total">
+        <p>Total</p>
+        <span>{{carrinho.total.precoFormatado}}</span>
+      </div>
+
+      <div class="actions">
+        <a href="/produtos/buscar" class="button shop">Continuar comprando</a>
+        <form action="/pedidos" method="POST">
+          <button class="button pedido">
+            Realizar Pedido
+          </button>
+        </form>
+      </div>
+
+    {%endcall%}
+
+    {%endif%}
+
+  {% endblock content %}

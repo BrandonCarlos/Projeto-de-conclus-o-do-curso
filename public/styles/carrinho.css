@@ -1,0 +1,165 @@
+.carrinho .header {
+  display: grid;
+  grid-template-columns: 1fr 100px 100px 30px;
+  grid-gap: 16px;
+  margin-bottom: 16px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #999;
+}
+
+.carrinho .header p:nth-child(2) {
+  text-align: right;
+}
+
+.carrinho .header p:nth-child(3) {
+  text-align: center;
+}
+
+.carrinho .item {
+  display: grid;
+  grid-template-columns: 1fr 100px 100px 30px;
+  align-items: center;
+  grid-gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+
+}
+
+.carrinho .item:hover {
+  background: rgba(0, 0, 0, .02)
+}
+
+.carrinho .item > a {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.carrinho .item img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-right: 16px;
+  box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, .4);
+  border-radius: 4px;
+}
+
+.carrinho .item .titulo {
+  color: #222;
+}
+
+.carrinho .item .preco {
+  text-align: right;
+  color: #555;
+}
+
+.carrinho .quantidade-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.carrinho .quantidade-control .quantidade {
+  margin: 0 8px;
+  color: #555;
+}
+
+.carrinho .quantidade-control i {
+  color: #555;
+}
+
+.carrinho .adicionar, .carrinho .remover, .carrinho .deletar {
+  cursor: pointer;
+}
+
+.carrinho .deletar {
+  color: red;
+}
+
+.carrinho .total {
+  margin-top: 16px;
+  text-align: right;
+}
+
+.carrinho .total p {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #777;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.carrinho .total span {
+  font-weight: bolder;
+  font-size: 22px;
+  color: #444;
+}
+
+.carrinho .actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.carrinho .button.shop {
+  width: 240px;
+}
+
+.carrinho .button.pedido {
+  background: rgb(19, 146, 51);
+}
+
+.carrinho .button.pedido:hover {
+  background: rgb(13, 175, 54);
+}
+
+
+/* Carrinho vazio */
+.carrinho-vazio {
+  text-align: center;
+}
+
+.carrinho-vazio p {
+  font-size: 18px;
+}
+
+.carrinho-vazio .button {
+  width: 240px;
+  margin: 16px auto;
+}
+
+
+/* Menu */
+header div.container {
+  grid-template-columns: 220px auto 315px;
+  grid-gap: 8px;
+}
+
+li.carrinho a {
+  position: relative;
+}
+
+li.carrinho a span {
+  background-color: red;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  top: 12px;
+  right: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+li.carrinho a:hover span {
+  background-color: white;
+  color: black;
+}

@@ -1,0 +1,63 @@
+<header>
+  <div class="container">
+    <a href="/">
+      <div class="logo">
+        <h1>HawkShop</h1>
+        <h2>Auto peças</h2>
+      </div>
+    </a>
+
+    <!-- action="/products/search" -->
+    <form class="search" method="GET" action="/produtos/buscar">
+      <input type="text" name="filter" placeholder="Buscar por Produtos" {% if buscar.term %} value="{{buscar.term}}" {% endif %}>
+    </form>
+
+    <!-- ADS = anuncios -->
+    <nav class="primary">
+      <ul>
+        <li>
+          <a href="/ads/criar">
+            <i class="material-icons">add</i>
+            Novo Anúncio
+          </a>
+        </li>
+        <li class="dropdown-container">
+          <a href="/contas">
+            <i class="material-icons">account_circle</i>
+            Minha Conta
+          </a>
+          {%if session.usuarioId%}
+            <ul class="dropdown">
+              <li>
+                <a href="/usuarios">Minha conta</a>
+              </li>
+              <li>
+                <a href="/usuarios/ads">Meus anúncios</a>
+              </li>
+              <li>
+                <a href="/pedidos">Meus pedidos</a>
+              </li>
+              <li>
+                <a href="/pedidos/vendas">Minhas vendas</a>
+              </li>
+              <li>
+                <form action="/usuarios/logout" method="POST">
+                  <button>Sair</button>
+                </form>
+              </li>
+            </ul>
+            {%endif%}
+          </li>
+          <li class="carrinho">
+            <a href="/carrinho">
+              <i class="material-icons">shopping_cart</i>
+              {%if (session.carrinho) and (session.carrinho.total.quantidade > 0 ) %}
+                <span id="carrinho-status-info">{{session.carrinho.total.quantidade}}</span>
+              {%endif%}
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>

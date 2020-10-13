@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    {% block head %}
+      <title>HawkShop</title>
+    {% endblock %}
+
+    {% include "parts/styles.njk" %}
+
+  </head>
+
+  <body>
+    {% include "parts/mensagens.njk" %}
+  
+    <!-- Abaixo iremos estar INCLUINDO O "HEADER" DA PÁGINA -->
+    {% include "parts/header.njk" %}
+
+    {% block content %}{% endblock %}
+
+    <!-- Abaixo iremos estar INCLUINDO o "FOOTER" DA PÁGINA -->
+    {% include "parts/footer.njk" %}
+
+  </body>
+
+</html>

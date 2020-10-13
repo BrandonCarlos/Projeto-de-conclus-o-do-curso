@@ -1,0 +1,45 @@
+{% extends "layout.njk" %}
+
+{% import "parts/card.njk" as card %}
+
+{% block content %}
+
+  {% call card.render('', 'pedido-detalhe container')%}
+
+  <div class="info">
+    <div class="comprador">
+      <h4>Comprador</h4>
+      <div class="nome">{{pedido.comprador.nome}}</div>
+      <div class="email">{{pedido.comprador.email}}</div>
+      <div class="endereco">{{pedido.comprador.endereco}}</div>
+      <div class="cep">{{pedido.comprador.cep}}</div>
+    </div>
+
+    <div class="vendedor">
+      <h4>Vendedor</h4>
+      <div class="nome">{{pedido.vendedor.nome}}</div>
+      <div class="email">{{pedido.vendedor.email}}</div>
+      <div class="endereco">{{pedido.vendedor.endereco}}</div>
+      <div class="cep">{{pedido.vendedor.cep}}</div>
+    </div>
+
+    <div class="status {{pedido.status}}">
+      <h2>{{pedido.statusFormatado}}</h2>
+      <p>{{pedido.atualizadoEmFormatado}}</p>
+    </div>
+  </div>
+
+  <div class="produto">
+    <img src="{{pedido.produto.img}}" alt="Imagem do produto {{pedido.produto.nome}}">
+    <p class="nome">{{pedido.produto.nome}}</p>
+    <p class="preco">
+      {{pedido.precoFormatado}} <br/>
+      <span class="quantidade">Quantidade: {{pedido.quantidade}}</span>
+      </p>
+  </div>
+
+  <div class="total"><span>Total</span> {{pedido.totalFormatado}}</div>
+
+  {%endcall%}
+
+  {%endblock%}

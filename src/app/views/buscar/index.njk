@@ -1,0 +1,29 @@
+{% extends "layout.njk" %}
+{% import "parts/sessao-produtos.njk" as sessao %}
+{% block content %}
+
+  <section class="buscar-produtos container">
+
+    <aside>
+      <div class="header">
+        <h2>{{buscar.term}}</h2>
+        <p>{{buscar.total}} encontrados</p>
+      </div>
+
+      <nav class="categorias">
+        <h4>Categorias</h4>
+        <ul>
+          {% for categoria in categorias %}
+          <li>
+            <a href="/produtos/buscar?filter={{buscar.term}}&categoria={{categoria.id}}">{{categoria.nome}}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </aside>
+
+      {{ sessao.produtos('', 'buscar', produtos )}}
+
+  </section>
+
+{% endblock content %}

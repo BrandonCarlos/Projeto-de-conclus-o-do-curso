@@ -1,0 +1,74 @@
+<div class="item">
+  <div>Nome Completo</div>
+  <div class="input">
+    <!--Neste INPUT se espera algo do tipo: https://-->
+    <!--Os "names" que eu to colocando eu vou receber lá no BACK-END, lá no ROUTES -->
+    <!--Para deixarmos o VALOR dentro do INPUT usamos o value=""-->
+    <input type="text" name="nome" placeholder="Digite seu nome completo" value="{{ usuario.nome }}" required>
+  </div>
+</div>
+
+<div class="item">
+  <div>Email</div>
+  <div class="input">
+    <!--Neste INPUT se espera algo do tipo: https://-->
+    <!--Os "names" que eu to colocando eu vou receber lá no BACK-END, lá no ROUTES -->
+    <!--Para deixarmos o VALOR dentro do INPUT usamos o value=""-->
+    <input type="email" name="email" placeholder="Digite seu email" value="{{ usuario.email }}" onblur="Validar.aplicar(this, 'Email')">
+  </div>
+</div>
+
+<div class="item">
+  <div>Senha</div>
+  <div class="input">
+    <!--Neste INPUT se espera algo do tipo: https://-->
+    <!--Os "names" que eu to colocando eu vou receber lá no BACK-END, lá no ROUTES -->
+    <!--Para deixarmos o VALOR dentro do INPUT usamos o value=""-->
+    <input type="password" name="senha" {% if not usuario.id %} placeholder="Escolha uma senha segura" {% else %}
+    placeholder="Digite sua senha para atualizar seu cadastro"
+    {% endif %}>
+  </div>
+</div>
+
+{% if not usuario.id %}
+
+<div class="item">
+  <div>Repetir Senha</div>
+  <div class="input">
+    <!--Neste INPUT se espera algo do tipo: https://-->
+    <!--Os "names" que eu to colocando eu vou receber lá no BACK-END, lá no ROUTES -->
+    <!--Para deixarmos o VALOR dentro do INPUT usamos o value=""-->
+    <input type="password" name="senhaRepetir" placeholder="Repita a senha escolhida">
+  </div>
+</div>
+{% endif %}
+
+<div class="item">
+  <div>CPF ou CNPJ</div>
+  <div class="input">
+    <!--Neste INPUT se espera algo do tipo: https://-->
+    <!--Os "names" que eu to colocando eu vou receber lá no BACK-END, lá no ROUTES -->
+    <!--Para deixarmos o VALOR dentro do INPUT usamos o value=""-->
+    <input type="text" name="cpf_cnpj" placeholder="Digite seu documento" value="{{ usuario.cpf_cnpj }}" onkeydown="Mascara.aplicar(this, 'cpfCnpj')" onblur="Validar.aplicar(this, 'VerificarCpfCnpj')">
+  </div>
+</div>
+
+<div class="item">
+  <div>CEP</div>
+  <div class="input">
+    <!--Neste INPUT se espera algo do tipo: https://-->
+    <!--Os "names" que eu to colocando eu vou receber lá no BACK-END, lá no ROUTES -->
+    <!--Para deixarmos o VALOR dentro do INPUT usamos o value=""-->
+    <input type="text" name="cep" placeholder="99999-999" value="{{ usuario.cep }}" onkeydown="Mascara.aplicar(this, 'cep')" onblur="Validar.aplicar(this, 'VerificarCep')">
+  </div>
+</div>
+
+<div class="item">
+  <div>Endereço Completo</div>
+  <div class="input">
+    <!--Neste INPUT se espera algo do tipo: https://-->
+    <!--Os "names" que eu to colocando eu vou receber lá no BACK-END, lá no ROUTES -->
+    <!--Para deixarmos o VALOR dentro do INPUT usamos o value=""-->
+    <input type="text" name="endereco" placeholder="Digite seu endereço completo" value="{{ usuario.endereco }}">
+  </div>
+</div>

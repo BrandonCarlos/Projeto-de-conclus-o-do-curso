@@ -1,0 +1,8 @@
+{% extends "layout.njk" %}
+{% import "parts/sessao-produtos.njk" as sessao %}
+
+{% block content %}
+
+  {{ sessao.produtos('Últimos produtos não percam!', 'container', produtos )}}
+
+{% endblock content %}
